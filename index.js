@@ -19,6 +19,7 @@ app.use("/api/log", require("./routes/log"));
 app.use("/api/loginadmin", require("./routes/loginadmin"));
 app.use("/api/loginuser", require("./routes/loginuser"));
 app.use("/api/resetpassword", require("./routes/resetPassword"));
+app.use("/api/resetpasswordadmin", require("./routes/resetAdminPassword"));
 app.use("/api/subscribe", require("./routes/subscribe"));
 app.use("/api/job", require("./routes/job"));
 app.use("/api/event", require("./routes/event"));

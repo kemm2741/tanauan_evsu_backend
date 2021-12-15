@@ -46,9 +46,7 @@ router.post("/", async (req, res) => {
 
     const admin = await newAdmin.save();
 
-    // ? Gin comment ko kay waray man inen gamit
-    // const token = jwt.sign({ user: admin._id }, "secret");
-    // res.header("auth-token", token).status(200).json({ token, admin });
+    res.status(200).json({ msg: "New admin created!" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ msg: "Server Error login" });
