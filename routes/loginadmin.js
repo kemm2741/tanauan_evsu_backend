@@ -2,6 +2,8 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+const trim = require("trim");
+
 //Models
 const Admin = require("../Model/Admin");
 
@@ -26,7 +28,8 @@ router.get("/", auth, async (req, res) => {
 // @access    Public
 router.post("/", async (req, res) => {
   try {
-    const { userName, password } = req.body;
+    const userName = trim(req.body.userName);
+    const password = trim(req.body.password);
 
     // Check if Admin Email Exist
     const admin = await Admin.findOne({ userName });

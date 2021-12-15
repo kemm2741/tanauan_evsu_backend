@@ -2,6 +2,8 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+const trim = require("trim");
+
 // Model
 const User = require("../Model/User");
 
@@ -27,9 +29,8 @@ router.get("/", auth, async (req, res) => {
 // @access    Private
 router.post("/", async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    // console.log(email, password);
+    const email = trim(req.body.email);
+    const password = trim(req.body.password);
 
     //  Email not found
     // Check if Admin Email Exist
